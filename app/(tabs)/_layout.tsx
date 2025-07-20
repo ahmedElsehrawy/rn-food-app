@@ -1,4 +1,5 @@
 import { images } from "@/constants";
+import { useAuthStore } from "@/store/auth";
 import cn from "clsx";
 import { Redirect, Tabs } from "expo-router";
 import React from "react";
@@ -24,7 +25,7 @@ const TabBarIcon = ({ focused, icon, title }: any) => (
 );
 
 const TabsLayout = () => {
-  const isAuthenticated = true;
+  const { isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
     return <Redirect href="/sign-in" />;
